@@ -29,5 +29,21 @@
     })();
 </script>
 <!-- end weather widget --> 
+<div class="login">
+	<h1>How many bikes currently in use?</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Time" placeholder="Time (0-23)" required="required" />
+    	<input type="text" name="Temperature (__)F" placeholder="Temperature (__)F" required="required" />
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict number of bikes in use</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
 </body>
 </html>
