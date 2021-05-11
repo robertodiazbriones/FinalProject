@@ -1,12 +1,23 @@
+from flask import Flask, request, redirect, url_for, flash, jsonify
+import numpy as np
+import pickle as p
+import json
+
+
 app = Flask(__name__)
 
-@app.route('/api/makecalc/', methods=['POST'])
+@app.route("/", methods=["GET"])
+def hello():
+    return jsonify("Forecast bike rental demand")
 
-def homepage():
-    response = requests.get(
-      "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/washington%20d.c./today?unitGroup=us&key=7BYNR7A5VCRX7G6DT9KHFR4QR&include=current")
+@app.route('/api/', methods=['POST'])
+def makecalc():
+    data = request.get_json()
+    prediction = np.array2string(model.predict(data))
 
-    return render_template('index.html', data=json.loads(r.text)['cnt'])
+    return jsonify(prediction)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    modelfile = 'model.pkl'
+    model = p.load(open(modelfile, 'rb'))
+    app.run(debug=True, host='0.0.0.0')

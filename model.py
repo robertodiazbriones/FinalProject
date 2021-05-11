@@ -1,17 +1,28 @@
 import numpy as np
-
+import matplotlib.pyplot as plt
 import pandas as pd
+import pickle
 
-from datetime import date
+data = pd.read_csv('Data/merged.csv')
 
-def linregression(data):
+X = data[['hr','temp','humidity','precip','feelslike']]
+y = data['registered'].values.reshape(-1, 1)
 
-    data['dayofyear']=(data['dteday']-
+from sklearn.model_selection import train_test_split
 
-        data['dteday'].apply(lambda x: date(x.year,1,1))
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-        .astype('datetime64[ns]')).apply(lambda x: x.days)
+from sklearn.linear_model import LinearRegression
+weather = LinearRegression()
 
-    X = np.array(data[['dayofyear','hr','temp','hum','cnt']])
+weather.fit(X_train, y_train)
+training_score = weather.score(X_train, y_train)
+testing_score = weather.score(X_test, y_test)
 
-    return X
+print(f"Training Score: {training_score}")
+print(f"Testing Score: {testing_score}")
+
+pickle.dump(weather, open('model.pkl','wb'))
+
+model = pickle.load(open('model.pkl','rb'))
+print(model.predict([[5, 60]]))
