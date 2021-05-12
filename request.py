@@ -1,16 +1,18 @@
 import requests
+import json
 
-url = 'http://localhost:5000/results'
-response = requests.post(url,json={'Time':5, 'Temp':60})
+url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/washington%20d.c./today?unitGroup=us&key=4TL5LFAY3PFAMN97VCTQRXQHR&include=current"
 
-print(r.json())
+response = requests.get(url)
+response_json = response.json()
 
+temp = response_json['currentConditions']['temp']
+hum = response_json['currentConditions']['humidity']
+precip = response_json['currentConditions']['precip']
+feels = response_json['currentConditions']['feelslike']
+current = (temp,hum,precip,feels)
 
-#pd.read_csv('Data/merged.csv')
-
-
-data = pd.read_csv('Data/merged.csv')
-j_data = json.dumps(data)
-headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-r = requests.post(url, data=j_data, headers=headers)
-print(r, r.text)
+print(f"Temperature: {temp} F")
+print(f"Humidity: {hum}%")
+print(f"Precipitation: {precip}")
+print(f"Feels Like: {feels} F")

@@ -5,8 +5,8 @@ import pickle
 
 data = pd.read_csv('Data/merged.csv')
 
-X = data[['hr','temp','humidity','precip','feelslike']]
-y = data['registered'].values.reshape(-1, 1)
+X = data[['temp','humidity','precip','feelslike']]
+y = data['casual'].values.reshape(-1, 1)
 
 from sklearn.model_selection import train_test_split
 
@@ -23,6 +23,3 @@ print(f"Training Score: {training_score}")
 print(f"Testing Score: {testing_score}")
 
 pickle.dump(weather, open('model.pkl','wb'))
-
-model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[5, 60]]))
