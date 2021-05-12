@@ -34,10 +34,6 @@ def api():
 
 @app.route('/predict/', methods=["POST","GET"])
 def makecalc():
-    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/washington%20d.c./today?unitGroup=us&key=4TL5LFAY3PFAMN97VCTQRXQHR&include=current"
-
-    response = requests.get(url)
-    response_json = response.json()
     
     data = api()
     prediction = model.predict(api())
