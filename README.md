@@ -11,6 +11,8 @@ The present repository contains mostly the code from the earlier stages of the p
 
 Files and Folders:
 
+ForTableau.ipynb: This file was used to merge the 2011-2014 CSVs from Capital Bike Share together for Tableau to use in the 2 Tableau vizualizations.
+
 FinalProject_WeatherData: This contains the initial data sets and how I tried to clean the data and merge it with the number of stations/trips.
 
 FinalProject_WeatherML: where I tried to do some ML on the datasets with weather features and the total trips by station.
