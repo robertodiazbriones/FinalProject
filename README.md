@@ -19,6 +19,5 @@ CBS_json:Where I build the json file that was used for the dashboard
 
 Tableau Link: https://public.tableau.com/views/FinalProject_16207840572400/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link
 
-Templates - This folder containst the HTML and CSS code for the front end of the app.
+Weather_API: Jupyter Notebook and Data 
 
-index.html - This is the HTML file that controls the appearance of the UI for the flask app.
