@@ -22,5 +22,5 @@ CBS_json: Where I built the json file that was used for the dashboard.
 
 Tableau Link: https://public.tableau.com/views/FinalProject_16207840572400/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link
 
-Weather_API: Jupyter Notebook and Data 
+Weather_API: Merged data sets of weather and hours of the day. 
 
