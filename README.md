@@ -4,6 +4,9 @@ Welcome to Capital Bike Sharing in Washington D.C. The goal of this project was 
 
 The finished product can be found at this address: https://robertodiazbriones.github.io/cbs_dashboard/templates/
 
+If you want to inspect the dashboard code, you can find it at the following github repo:
+https://github.com/robertodiazbriones/cbs_dashboard
+
 The present repository contains mostly the code from the earlier stages of the project - the original data, the jupyter notebooks used to clean and manipulate the data, and the flask app used to serve the data out in JSON form.
 
 Files and Folders:
